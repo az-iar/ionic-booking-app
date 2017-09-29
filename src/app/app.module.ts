@@ -15,21 +15,14 @@ import { CreateBookingPage } from "../pages/create-booking/create-booking";
 import { BookingDetailPageModule } from "../pages/booking-detail/booking-detail.module";
 
 @NgModule({
-  declarations: [MyApp, HomePage, ListPage],
-  imports: [
-    BrowserModule,
-    HttpModule,
-    CreateBookingPageModule,
-    BookingDetailPageModule,
-    IonicModule.forRoot(MyApp)
-  ],
+  declarations: [MyApp, HomePage, ListPage, CreateBookingPage],
+  imports: [BrowserModule, HttpModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
   entryComponents: [MyApp, HomePage, ListPage, CreateBookingPage],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
-    BookingProvider
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
 export class AppModule {}
