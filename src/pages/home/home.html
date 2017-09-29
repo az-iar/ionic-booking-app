@@ -8,6 +8,10 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   <ion-card *ngFor="let booking of bookings" (click)="showDetails(booking)">
     <ion-card-content>
       <h3>{{ booking.name }}</h3>

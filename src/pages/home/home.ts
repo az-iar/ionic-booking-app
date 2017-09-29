@@ -11,6 +11,7 @@ import { BookingDetailPage } from "../booking-detail/booking-detail";
 })
 export class HomePage {
   bookings = [];
+  currentPage = 1;
 
   constructor(
     public navCtrl: NavController,
@@ -26,10 +27,16 @@ export class HomePage {
     this.getBookings();
   }
 
+  doRefresh(refresher) {
+    this.getBookings();
+    refresher.complete();
+  }
+
   getBookings() {
-    this.bookingProvider
-      .getBookings()
-      .subscribe(bookings => (this.bookings = bookings));
+    this.bookingProvider.getBookings(this.currentPage).subscribe(bookings => {
+      this.bookings = this.bookings.concat(bookings);
+      this.currentPage++;
+    });
   }
 
   createBooking() {

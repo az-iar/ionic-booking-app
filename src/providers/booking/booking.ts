@@ -12,9 +12,9 @@ import "rxjs/add/operator/map";
 export class BookingProvider {
   constructor(public http: Http) {}
 
-  getBookings() {
+  getBookings(page = 1) {
     return this.http
-      .get("https://27b08483.ngrok.io/api/bookings")
+      .get("https://27b08483.ngrok.io/api/bookings?page=" + page)
       .map(response => response.json())
       .map(response => response.data);
   }
