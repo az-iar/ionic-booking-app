@@ -1,5 +1,14 @@
 {
   "name": "BookingApp",
   "app_id": "",
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  },
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "https://27b08483.ngrok.io/api"
+    }
+  ]
 }
